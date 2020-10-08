@@ -17,6 +17,6 @@ public class Segment {
         return this.speed;
     }
 
-    private double length;
-    private double speed;
+    private final double length;
+    private final double speed;
 }

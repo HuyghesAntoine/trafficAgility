@@ -1,8 +1,12 @@
-image: maven:3-openjdk-8
+image: maven:3.6-jdk-11
 
 stages:
   - build
   - test
+  - sonarqube
+
+variables:
+  SONAR_USER_HOME: "${CI_PROJECT_DIR}/.sonar"
 
 cache:
   paths:
@@ -17,3 +21,11 @@ test:
   stage: test
   script:
     - mvn verify
+
+sonarqube:
+  stage: sonarqube
+  script:
+    - mvn verify sonar:sonar -Dsonar.login=064a6d79c03e566fdb57c8b2bb09cdedcbffc7c4 -Dsonar.projectKey=projet-eramat -Dsonar.host.url=http://51.254.210.97:9000 -Dsonar.qualitygate.wait=true
+  allow_failure : true
+  only:
+    - master
