@@ -1,9 +1,11 @@
 package ulco.traffic;
 
-import org.junit.*;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import ulco.traffic.*;
 
-public class Story_1 {
+public class Story_1_Test {
     @Test
     public void vehicle_have_same_speed_than_segment() {
         // creation d’un segment de longueur 200m et avec une vitesse de 10 m/s
@@ -17,7 +19,7 @@ public class Story_1 {
             // le vehicule du segment avance
             segment.run(time);
 
-            Assert.assertEquals(vehicle.speed(), segment.speed(), 1e-5);
+            assertEquals(vehicle.speed(), segment.speed(), 1e-5);
 
         }
     }

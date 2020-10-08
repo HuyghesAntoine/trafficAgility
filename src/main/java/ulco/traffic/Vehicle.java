@@ -1,9 +1,17 @@
 package ulco.traffic;
 
 public class Vehicle {
-    public Vehicle() {}
+    public Vehicle() {
+        speed = 0;
+    }
 
     public double speed() {
-        return -1;
+        return this.speed;
     }
+
+    public void speed(double speed) {
+        this.speed = speed;
+    }
+
+    private double speed;
 }
